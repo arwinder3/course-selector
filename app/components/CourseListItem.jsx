@@ -10,10 +10,17 @@ export default class CourseListItem extends React.Component {
         let classNames = ["fa"];
 
         if (this.props.isSelected) {
-            classNames.push("fa-circle");
+            classNames.push("fa-calendar-check-o");
+        }
+
+        return classNames.join(" ");
+    }
+
+    getCourseItemClassNames() {
+        let classNames = ["course-list-item group"];
+
+        if (this.props.isSelected) {
             classNames.push("selected");
-        } else {
-            classNames.push("fa-circle-o");
         }
 
         return classNames.join(" ");
@@ -26,7 +33,7 @@ export default class CourseListItem extends React.Component {
             `${this.props.name.substring(0, 35)}...` : this.props.name;
         return (
             <div
-                className="course-list-item group"
+                className={this.getCourseItemClassNames()}
                 onClick={this.props.onCourseSelection}>
                 <div className="course-selection-container">
                     <div><i className={this.courseSelectionClassNames()}></i></div>

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Course Selector</title>
         <link rel="stylesheet" href="./styles/font-awesome-4.6.3/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300|Quicksand|Poiret+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Quicksand|Poiret+One" rel="stylesheet">
         <style>
             html,
             body,
@@ -16,6 +16,7 @@
 
             body {
                 font-family: 'Lato', sans-serif;
+                font-weight: 300;
             }
 
             .group:after {
@@ -112,15 +113,16 @@
                 justify-content: center;
                 align-items: center;
                 text-align: center;
+                color: #225f51;
             }
             .course-list-item .course-selection-container .fa {
-                font-size: 0.5em;
+                font-size: 1em;
                 flex: 1;
                 display: block;
             }
 
-            .course-list-item .course-selection-container .selected {
-                color: #00B16A;
+            .course-list-item.selected {
+                background-color: #c8ebe3;
             }
 
             .course-list-item .course-details {
@@ -136,6 +138,8 @@
             }
             .course-list-item .course-details .top-section .course-title {
                 font-size: 0.85em;
+                font-family: 'Lato', sans-serif;
+                font-weight: 400;
             }
             .course-list-item .course-details .bottom-section {
                 height: 50%;
@@ -143,6 +147,7 @@
             }
             .course-list-item .course-details .bottom-section .course-author {
                 font-size: 0.8em;
+                font-weight: 300;
                 font-style: italic;
             }
 
@@ -214,7 +219,8 @@
                 text-transform: uppercase;
                 min-width: 12%;
                 text-align: center;
-                background-color: #D2D7D3;
+                background-color: #699bc3;
+                color: #FFF;
                 padding: 10px;
             }
             .calendar-table tbody tr:hover {
@@ -226,13 +232,18 @@
             .calendar-table tbody tr td {
                 text-align: center;
             }
-            .calendar-table tbody tr td.free {
-                background-color: #E4F1FE;
+            .calendar-table tbody tr td.free,
+            .table-legend-container .free-legend {
+                background-color: #f4f9ff;
             }
 
-            .calendar-table tbody tr td.busy {
+            .calendar-table tbody tr td.busy,
+            .table-legend-container .busy-legend {
                 background-color: #EC644B;
                 opacity: 0.8;
+
+            }
+            .calendar-table tbody tr td.busy {
                 cursor: pointer;
             }
             .calendar-table tbody tr td.busy.active {
@@ -248,12 +259,6 @@
             .table-legend-container .free-legend,
             .table-legend-container .busy-legend {
                 padding: 10px;
-            }
-            .table-legend-container .free-legend {
-                background-color: #E4F1FE;
-            }
-            .table-legend-container .busy-legend {
-                background-color: #EC644B;
             }
 
             .course-info-wrapper {
@@ -289,7 +294,7 @@
             .course-info-footer {
                 text-align: right;
             }
-            .fa-remove {
+            .fa-calendar-minus-o {
                 color: #EF4836;
             }
 
@@ -309,6 +314,7 @@
                 padding: 5px 10px;
                 width: 130px;
                 font-family: 'Lato', sans-serif;
+                font-weight: 300;
                 outline: none;
                 font-size: 0.7em;
             }

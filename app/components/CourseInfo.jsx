@@ -31,11 +31,11 @@ export default class CourseInfo extends React.Component {
                     </div>
                 </div>
                 <div>
-                    <span>{`Author: ${this.props.activeCourse.author}`}</span>
+                    <span>{`${this.props.activeCourse.author}`}</span>
                 </div>
                 <div className="course-info-footer">
                     <button className="cs-button" onClick={this.handleRemoveFromCalendar}>
-                        <i className="fa fa-remove"></i> Remove from Calendar
+                        <i className="fa fa-calendar-minus-o"></i> Remove from Calendar
                     </button>
                 </div>
             </div>

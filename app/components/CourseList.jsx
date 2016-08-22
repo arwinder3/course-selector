@@ -21,8 +21,9 @@ export default class CourseList extends React.Component {
             // Remove from Calendar
             updatedCalendar.courseIds = updatedCourseIds.filter(courseId => courseId !== this.course.id);
             this.props.onCalendarUpdate(updatedCalendar);
+
             // If the course being removed is the active course - set the active course to null
-            if (this.props.activeCourse.id === this.course.id) {
+            if (this.props.activeCourse && this.props.activeCourse.id === this.course.id) {
                 this.props.clearActiveCourse();
             }
         } else {
