@@ -34,6 +34,7 @@ export default class App extends React.Component {
         this.handleCalendarUpdate = this.handleCalendarUpdate.bind(this);
         this.clearMessage = this.clearMessage.bind(this);
         this.handleCellClick = this.handleCellClick.bind(this);
+        this.clearActiveCourse = this.clearActiveCourse.bind(this);
     }
 
     componentWillMount() {
@@ -111,6 +112,12 @@ export default class App extends React.Component {
         }
     }
 
+    clearActiveCourse() {
+        this.setState({
+            activeCourse: null
+        });
+    }
+
     render() {
         return (
             <div className="app-container">
@@ -121,7 +128,9 @@ export default class App extends React.Component {
                             courseList={this.state.courses}
                             onCalendarUpdate={this.handleCalendarUpdate}
                             calendar={this.state.calendars[this.state.activeCalendarId]}
-                            onMessage={this.handleMessage}/>
+                            onMessage={this.handleMessage}
+                            activeCourse={this.state.activeCourse}
+                            clearActiveCourse={this.clearActiveCourse}/>
                     </div>
                     <div className="calendar-messages-wrapper">
                         <Messages
@@ -133,7 +142,6 @@ export default class App extends React.Component {
                             activeCalendar={this.state.calendars[this.state.activeCalendarId]}
                             onCalendarUpdate={this.handleCalendarUpdate}
                             onCellClick={this.handleCellClick}
-                            activeCalendarCellIndexes={this.state.activeCalendarCellIndexes}
                             activeCourse={this.state.activeCourse}/>
                     </div>
                 </div>

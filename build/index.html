@@ -233,6 +233,7 @@
             .calendar-table tbody tr td.busy {
                 background-color: #EC644B;
                 opacity: 0.8;
+                cursor: pointer;
             }
             .calendar-table tbody tr td.busy.active {
                 background-color: #CF000F;
@@ -254,7 +255,8 @@
             }
 
             .course-info-wrapper {
-                width: 30%;
+                width: 35%;
+                box-sizing: border-box;
                 height: 100%;
                 float: left;
             }
@@ -267,10 +269,36 @@
                 text-align: right;
             }
 
-            .course-info-title {
-                text-align: left;
+            .course-info-title-left {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                width: 70%;
                 float: left;
-                width: 75%;
+            }
+            .course-info-title-right {
+                width: 30%;
+                float: left;
+            }
+            .course-info-title-right-half {
+                height: 50%;
+            }
+            .course-info-footer {
+                text-align: right;
+            }
+            .fa-remove {
+                color: #EF4836;
+            }
+
+            button.cs-button {
+                padding: 5px;
+                border: 1px solid #F4D03F;
+                background-color: #FFE072;
+                font-family: 'Lato', sans-serif;
+                font-size: 0.83em;
+                cursor: pointer;
+                outline: none;
             }
 
             input.edit-header-title {

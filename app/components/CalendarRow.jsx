@@ -20,7 +20,7 @@ export default class CalendarRow extends React.Component {
                     calendar={this.props.calendar}
                     courseList={this.props.courseList}
                     onCellClick={this.props.onCellClick}
-                    activeCalendarCellIndexes={this.props.activeCalendarCellIndexes}/>
+                    activeCourse={this.props.activeCourse}/>
             );
         }
         return dayCells;
@@ -42,5 +42,5 @@ CalendarRow.propTypes = {
     courseList: React.PropTypes.array,
     calendar: React.PropTypes.object,
     onCellClick: React.PropTypes.func,
-    activeCalendarCellIndexes: React.PropTypes.object
+    activeCourse: React.PropTypes.object
 };

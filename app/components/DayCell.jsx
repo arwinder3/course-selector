@@ -16,9 +16,9 @@ export default class DayCell extends React.Component {
             course.timeIndex.indexOf(this.props.timeIndex) !== -1
         )).length > 0) {
             classNames.push("busy");
-            if (this.props.activeCalendarCellIndexes &&
-                this.props.activeCalendarCellIndexes.timeIndex.indexOf(this.props.timeIndex) !== -1 &&
-                this.props.activeCalendarCellIndexes.dayIndex.indexOf(this.props.dayIndex) !== -1) {
+            if (this.props.activeCourse &&
+                this.props.activeCourse.timeIndex.indexOf(this.props.timeIndex) !== -1 &&
+                this.props.activeCourse.dayIndex.indexOf(this.props.dayIndex) !== -1) {
                 classNames.push("active");
             }
         } else {
@@ -32,11 +32,22 @@ export default class DayCell extends React.Component {
         this.props.onCellClick(this.props.timeIndex, this.props.dayIndex);
     }
 
+    formatTimeCell() {
+        let time = this.props.timeIndex;
+        if (time === 12) {
+            return `${time}pm`;
+        } else if (time > 12) {
+            return `${time - 12}pm`;
+        } else {
+            return `${time}am`;
+        }
+    }
+
     render() {
         return (
             <td
                 className={this.getCellClassName()}
-                onClick={this.handleCellClick}></td>
+                onClick={this.handleCellClick}>{this.formatTimeCell()}</td>
         );
     }
 }
@@ -47,5 +58,5 @@ DayCell.propTypes = {
     calendar: React.PropTypes.object,
     courseList: React.PropTypes.array,
     onCellClick: React.PropTypes.func,
-    activeCalendarCellIndexes: React.PropTypes.object
+    activeCourse: React.PropTypes.object
 };
