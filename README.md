@@ -22,3 +22,13 @@ Once you've cloned the repo and installed the npm dependencies you're good to st
 ```Shell
 npm start
 ```
+
+## Configuring the server
+As default the server will be running on port 2999, therefore, you can access the web application here - http://localhost:2999.
+
+If you'd like to change this you can edit webpack.config.js:
+
+```Javascript
+host: process.env.HOST,
+port: process.env.PORT || 2999
+```
