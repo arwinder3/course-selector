@@ -81,6 +81,12 @@
                 align-items: center;
             }
 
+            .course-list-filter-container {
+                width: 70%;
+                float: right;
+                padding: 0 20px;
+            }
+
             .course-list-item {
                 border-bottom: 1px solid #DADFE1;
                 cursor: pointer;
@@ -204,10 +210,6 @@
             .calendar-table thead {
                 font-size: 1.5em;
             }
-            .calendar-table thead tr th:first-child {
-                background-color: #FFF;
-            }
-
             .calendar-table thead tr th {
                 text-transform: uppercase;
                 min-width: 12%;
@@ -215,16 +217,14 @@
                 background-color: #D2D7D3;
                 padding: 10px;
             }
-
-            .calendar-table tbody tr td:first-child {
-                text-align: center;
-                font-size: 1.5em;
-            }
             .calendar-table tbody tr:hover {
                 background-color: #F2F7F3;
             }
             .calendar-table tbody tr {
                 height: 10%;
+            }
+            .calendar-table tbody tr td {
+                text-align: center;
             }
             .calendar-table tbody tr td.free {
                 background-color: #E4F1FE;
@@ -237,6 +237,8 @@
             }
             .calendar-table tbody tr td.busy.active {
                 background-color: #CF000F;
+                color: #FFF;
+                font-weight: bold;
             }
 
             .table-legend-container {
@@ -299,6 +301,16 @@
                 font-size: 0.83em;
                 cursor: pointer;
                 outline: none;
+            }
+
+            input.filter-input {
+                border-radius: 50px;
+                border: 1px solid #FFF;
+                padding: 5px 10px;
+                width: 130px;
+                font-family: 'Lato', sans-serif;
+                outline: none;
+                font-size: 0.7em;
             }
 
             input.edit-header-title {

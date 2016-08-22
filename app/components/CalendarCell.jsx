@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class DayCell extends React.Component {
+export default class CalendarCell extends React.Component {
     constructor(props) {
         super(props);
 
@@ -32,7 +32,7 @@ export default class DayCell extends React.Component {
         this.props.onCellClick(this.props.timeIndex, this.props.dayIndex);
     }
 
-    formatTimeCell() {
+    getFormattedTimeCell() {
         let time = this.props.timeIndex;
         if (time === 12) {
             return `${time}pm`;
@@ -47,12 +47,12 @@ export default class DayCell extends React.Component {
         return (
             <td
                 className={this.getCellClassName()}
-                onClick={this.handleCellClick}>{this.formatTimeCell()}</td>
+                onClick={this.handleCellClick}>{this.getFormattedTimeCell()}</td>
         );
     }
 }
 
-DayCell.propTypes = {
+CalendarCell.propTypes = {
     dayIndex: React.PropTypes.number,
     timeIndex: React.PropTypes.number,
     calendar: React.PropTypes.object,

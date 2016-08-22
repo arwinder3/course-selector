@@ -3,6 +3,15 @@ import React from "react";
 export default class CourseInfo extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleRemoveFromCalendar = this.handleRemoveFromCalendar.bind(this);
+    }
+
+    handleRemoveFromCalendar() {
+        const updatedCalendar = Object.assign({}, this.props.activeCalendar);
+        updatedCalendar.courseIds = this.props.activeCalendar.courseIds.filter(courseId => courseId !== this.props.activeCourse.id);
+        this.props.onCalendarUpdate(updatedCalendar);
+        this.props.clearActiveCourse();
     }
 
     render() {
@@ -25,9 +34,18 @@ export default class CourseInfo extends React.Component {
                     <span>{`Author: ${this.props.activeCourse.author}`}</span>
                 </div>
                 <div className="course-info-footer">
-                    <button className="cs-button"><i className="fa fa-remove"></i> Remove from Calendar</button>
+                    <button className="cs-button" onClick={this.handleRemoveFromCalendar}>
+                        <i className="fa fa-remove"></i> Remove from Calendar
+                    </button>
                 </div>
             </div>
         );
     }
 }
+
+CourseInfo.propTypes = {
+    activeCourse: React.PropTypes.object,
+    activeCalendar: React.PropTypes.object,
+    onCalendarUpdate: React.PropTypes.func,
+    clearActiveCourse: React.PropTypes.func
+};

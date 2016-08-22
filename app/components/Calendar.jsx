@@ -101,7 +101,6 @@ export default class Calendar extends React.Component {
                         <table className="calendar-table">
                             <thead>
                                 <tr>
-                                    <th></th>
                                     {this.state.calendarDays.map(day => <th key={day}>{day}</th>)}
                                 </tr>
                             </thead>
@@ -117,7 +116,11 @@ export default class Calendar extends React.Component {
                     <div className="course-info-wrapper">
                         {
                             (this.props.activeCourse) ?
-                                <CourseInfo activeCourse={this.props.activeCourse}/> : null
+                                <CourseInfo
+                                    activeCourse={this.props.activeCourse}
+                                    activeCalendar={this.props.activeCalendar}
+                                    onCalendarUpdate={this.props.onCalendarUpdate}
+                                    clearActiveCourse={this.props.clearActiveCourse}/> : null
                         }
                     </div>
                 </div>
@@ -133,5 +136,6 @@ Calendar.propTypes = {
     activeCalendar: React.PropTypes.object,
     onCalendarUpdate: React.PropTypes.func,
     onCellClick: React.PropTypes.func,
-    activeCourse: React.PropTypes.object
+    activeCourse: React.PropTypes.object,
+    clearActiveCourse: React.PropTypes.func
 };

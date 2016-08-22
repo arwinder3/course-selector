@@ -1,19 +1,18 @@
 import React from "react";
 
 /* Components */
-import TimeCell from "./TimeCell";
-import DayCell from "./DayCell";
+import CalendarCell from "./CalendarCell";
 
 export default class CalendarRow extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    createDayCells() {
-        const dayCells = [];
+    createCalendarCells() {
+        const calendarCells = [];
         for (let i = 0; i < 7; i++) {
-            dayCells.push(
-                <DayCell
+            calendarCells.push(
+                <CalendarCell
                     key={i}
                     dayIndex={i}
                     timeIndex={this.props.timeIndex}
@@ -23,14 +22,13 @@ export default class CalendarRow extends React.Component {
                     activeCourse={this.props.activeCourse}/>
             );
         }
-        return dayCells;
+        return calendarCells;
     }
 
     render() {
         return (
             <tr>
-                <TimeCell timeIndex={this.props.timeIndex}/>
-                {this.createDayCells()}
+                {this.createCalendarCells()}
             </tr>
         );
     }

@@ -112,9 +112,10 @@ export default class App extends React.Component {
         }
     }
 
-    clearActiveCourse() {
+    clearActiveCourse(activeCourse) {
+        const newActiveCourse = activeCourse || null;
         this.setState({
-            activeCourse: null
+            activeCourse: newActiveCourse
         });
     }
 
@@ -142,7 +143,8 @@ export default class App extends React.Component {
                             activeCalendar={this.state.calendars[this.state.activeCalendarId]}
                             onCalendarUpdate={this.handleCalendarUpdate}
                             onCellClick={this.handleCellClick}
-                            activeCourse={this.state.activeCourse}/>
+                            activeCourse={this.state.activeCourse}
+                            clearActiveCourse={this.clearActiveCourse}/>
                     </div>
                 </div>
             </div>

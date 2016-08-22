@@ -5,6 +5,12 @@ import CourseListItem from "./CourseListItem";
 export default class CourseList extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            courseFilterString: ""
+        };
+
+        this.handleCourseFilterChange = this.handleCourseFilterChange.bind(this);
     }
 
     handleCourseSelection() {
@@ -60,23 +66,42 @@ export default class CourseList extends React.Component {
             }, []).join(", ");
     }
 
+    handleCourseFilterChange(e) {
+        this.setState({
+            courseFilterString: e.target.value
+        });
+    }
+
     render() {
         return (
             <div className="course-list-container">
-                <div className="course-list-heading">Courses</div>
+                <div className="course-list-heading">
+                    Courses
+                    <div className="course-list-filter-container">
+                        <input
+                            className="filter-input"
+                            placeholder="Filter course by name..."
+                            onChange={this.handleCourseFilterChange}
+                            />
+                    </div>
+                </div>
                 <div className="course-list">
                     {
-                        this.props.courseList.map(course => (
-                            <CourseListItem
-                                key={course.id}
-                                isSelected={this.props.calendar.courseIds.indexOf(course.id) !== -1}
-                                onCourseSelection={this.handleCourseSelection.bind({
-                                    self: this,
-                                    props: this.props,
-                                    course: course
-                                })}
-                                {...course}/>
+                        this.props.courseList.filter(courseToBeFiltered => (
+                            this.state.courseFilterString === "" ||
+                            (this.state.courseFilterString !== "" && courseToBeFiltered.name.toLowerCase().indexOf(this.state.courseFilterString.toLowerCase()) !== -1)
                         ))
+                            .map(course => (
+                                <CourseListItem
+                                    key={course.id}
+                                    isSelected={this.props.calendar.courseIds.indexOf(course.id) !== -1}
+                                    onCourseSelection={this.handleCourseSelection.bind({
+                                        self: this,
+                                        props: this.props,
+                                        course: course
+                                    })}
+                                    {...course}/>
+                            ))
                     }
                 </div>
             </div>
