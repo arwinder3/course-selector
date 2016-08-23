@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <title>Course Selector</title>
         <link rel="stylesheet" href="./styles/font-awesome-4.6.3/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Quicksand|Poiret+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Martel+Sans:200,400|Quicksand" rel="stylesheet">
+
         <style>
             html,
             body,
@@ -15,8 +16,39 @@
             }
 
             body {
-                font-family: 'Lato', sans-serif;
-                font-weight: 300;
+                font-family: 'Martel Sans', sans-serif;
+                font-weight: 200;
+            }
+
+            button.cs-button {
+                padding: 5px;
+                border: 1px solid #F4D03F;
+                background-color: #FFE072;
+                font-family: 'Martel Sans', sans-serif;
+                font-size: 0.83em;
+                cursor: pointer;
+                outline: none;
+            }
+
+            input.filter-input {
+                border-radius: 50px;
+                border: 1px solid #FFF;
+                padding: 5px 10px 2px 10px;
+                width: 130px;
+                font-weight: 200;
+                outline: none;
+                font-size: 0.65em;
+                font-family: 'Martel Sans', sans-serif;
+            }
+
+            input.edit-header-title {
+                background-color: #A2DED0;
+                outline: none;
+                border: 0;
+                border-bottom: 2px solid #1E824C;
+                padding: 5px;
+                font-family: 'Quicksand', sans-serif;
+                font-size: 1em;
             }
 
             .group:after {
@@ -39,6 +71,16 @@
                 color: #000;
                 padding: 15px;
                 box-sizing: border-box;
+                position: relative;
+            }
+            .site-header:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                box-shadow: 0 0 8px #338166;
             }
             span.site-title {
                 font-size: 1.8em;
@@ -49,6 +91,7 @@
                 height: 100%;
                 box-sizing: border-box;
             }
+
             .main-content-container {
                 height: 90%;
                 box-sizing: border-box;
@@ -59,6 +102,7 @@
                 width: 20%;
                 height: 100%;
             }
+
             .course-list-container {
                 height: 100%;
             }
@@ -67,7 +111,7 @@
                 max-height: 100%;
                 overflow: auto;
                 box-sizing: border-box;
-                border-right: 2px solid #DBDBDB;
+                border-right: 1px solid #DBDBDB;
                 background-color: #F5F5F5;
             }
             .course-list-heading {
@@ -81,7 +125,6 @@
                 justify-content: flex-start;
                 align-items: center;
             }
-
             .course-list-filter-container {
                 width: 70%;
                 float: right;
@@ -94,6 +137,8 @@
                 height: 55px;
                 box-sizing: border-box;
                 background-color: #ECECEC;
+                font-family: 'Martel Sans', sans-serif;
+                transition: all ease 0.2s;
             }
             .course-list-item:hover {
                 background-color: #D9D9D9;
@@ -120,11 +165,9 @@
                 flex: 1;
                 display: block;
             }
-
             .course-list-item.selected {
                 background-color: #c8ebe3;
             }
-
             .course-list-item .course-details {
                 width: 90%;
                 height: 100%;
@@ -135,19 +178,14 @@
             .course-list-item .course-details .top-section {
                 height: 50%;
                 box-sizing: border-box;
-            }
-            .course-list-item .course-details .top-section .course-title {
-                font-size: 0.85em;
-                font-family: 'Lato', sans-serif;
                 font-weight: 400;
+                font-size: 0.85em;
             }
             .course-list-item .course-details .bottom-section {
                 height: 50%;
                 box-sizing: border-box;
-            }
-            .course-list-item .course-details .bottom-section .course-author {
                 font-size: 0.8em;
-                font-weight: 300;
+                font-weight: 200;
                 font-style: italic;
             }
 
@@ -159,7 +197,7 @@
             }
 
             .messages-container {
-                padding: 10px;
+                padding: 5px 10px;
                 width: 500px;
                 color: #FFF;
                 position: fixed;
@@ -171,6 +209,9 @@
                 flex-direction: row;
                 justify-content: flex-start;
                 align-items: center;
+                font-family: 'Martel Sans', sans-serif;
+                font-weight: 200;
+                font-size: 0.95em;
             }
 
             .calendar-container {
@@ -203,10 +244,10 @@
                 box-sizing: border-box;
                 float: left;
                 margin: 0 20px 0 0;
+                font-family: 'Martel Sans', sans-serif;
             }
 
             .calendar-table {
-                font-family: 'Poiret One', cursive;
                 height: 70%;
                 width: 100%;
                 margin-bottom: 15px;
@@ -221,22 +262,34 @@
                 text-align: center;
                 background-color: #699bc3;
                 color: #FFF;
-                padding: 10px;
+                padding: 5px;
+                font-weight: 200;
             }
             .calendar-table tbody tr:hover {
                 background-color: #F2F7F3;
             }
             .calendar-table tbody tr {
                 height: 10%;
+                font-size: 0.8em;
             }
+            .table-legend-container .free-legend,
+            .table-legend-container .busy-legend,
             .calendar-table tbody tr td {
                 text-align: center;
+                font-weight: 200;
+                padding: 5px;
+                transition: all ease 0.3s;
+            }
+
+            .table-legend-container .free-legend,
+            .table-legend-container .busy-legend {
+                font-size: 0.8em;
+                font-weight: 400;
             }
             .calendar-table tbody tr td.free,
             .table-legend-container .free-legend {
                 background-color: #f4f9ff;
             }
-
             .calendar-table tbody tr td.busy,
             .table-legend-container .busy-legend {
                 background-color: #EC644B;
@@ -251,14 +304,8 @@
                 color: #FFF;
                 font-weight: bold;
             }
-
             .table-legend-container {
                 text-align: right;
-                font-family: 'Poiret One', cursive;
-            }
-            .table-legend-container .free-legend,
-            .table-legend-container .busy-legend {
-                padding: 10px;
             }
 
             .course-info-wrapper {
@@ -267,7 +314,6 @@
                 height: 100%;
                 float: left;
             }
-
             .course-info-container {
                 padding: 10px;
                 border: 1px solid #D2D7D3;
@@ -275,7 +321,6 @@
             .course-info-title-container {
                 text-align: right;
             }
-
             .course-info-title-left {
                 display: flex;
                 flex-direction: row;
@@ -283,10 +328,13 @@
                 align-items: center;
                 width: 70%;
                 float: left;
+                text-align: left;
+                font-weight: 400;
             }
             .course-info-title-right {
                 width: 30%;
                 float: left;
+                font-weight: 200;
             }
             .course-info-title-right-half {
                 height: 50%;
@@ -297,39 +345,8 @@
             .fa-calendar-minus-o {
                 color: #EF4836;
             }
-
-            button.cs-button {
-                padding: 5px;
-                border: 1px solid #F4D03F;
-                background-color: #FFE072;
-                font-family: 'Lato', sans-serif;
-                font-size: 0.83em;
-                cursor: pointer;
-                outline: none;
-            }
-
-            input.filter-input {
-                border-radius: 50px;
-                border: 1px solid #FFF;
-                padding: 5px 10px;
-                width: 130px;
-                font-family: 'Lato', sans-serif;
-                font-weight: 300;
-                outline: none;
-                font-size: 0.7em;
-            }
-
-            input.edit-header-title {
-                background-color: #A2DED0;
-                outline: none;
-                border: 0;
-                border-bottom: 2px solid #1E824C;
-                padding: 5px;
-                font-family: 'Quicksand', sans-serif;
-                font-size: 1em;
-            }
-
         </style>
+
     </head>
 
     <body>

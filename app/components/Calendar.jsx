@@ -11,7 +11,7 @@ export default class Calendar extends React.Component {
         this.state = {
             timeStart: 7,
             timeEnd: 16,
-            calendarDays: ["Sun", "Mon", "Tues", "Weds", "Thurs", "Fri", "Sat"],
+            calendarDays: ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"],
             editCalendarName: false
         };
 

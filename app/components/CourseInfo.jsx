@@ -19,7 +19,7 @@ export default class CourseInfo extends React.Component {
             <div className="course-info-container group">
                 <div className="course-info-title-container">
                     <div className="course-info-title-left">
-                        <strong>{this.props.activeCourse.name}</strong>
+                        {this.props.activeCourse.name}
                     </div>
                     <div className="course-info-title-right">
                         <div className="course-info-title-right-half">

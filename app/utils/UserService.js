@@ -12,32 +12,3 @@ export function updateCalendar(userId, calendarId, calendar) {
         })
     }).then(response => response.json());
 }
-
-// export function getCalendarMaps(calendars, courses) {
-//     const calendarMaps = {};
-//
-//     for (let calendarId in calendars) {
-//         if (calendars.hasOwnProperty(calendarId)) {
-//             const calendarMap = {};
-//
-//             calendars[calendarId].courseIds.forEach(courseId => {
-//                 const course = courses[courseId];
-//
-//                 course.timeIndex.forEach(timeIndex => {
-//                     if (!calendarMap[timeIndex]) {
-//                         calendarMap[timeIndex] = {};
-//                     }
-//                     course.dayIndex.forEach(dayIndex => {
-//                         calendarMap[timeIndex][dayIndex] = course;
-//                     });
-//                 });
-//
-//                 calendarMaps[calendarId] = calendarMap;
-//             });
-//         }
-//     }
-//
-//     console.log(calendarMaps);
-//
-//     return calendarMaps;
-// }
