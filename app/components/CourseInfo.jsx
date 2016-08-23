@@ -20,15 +20,12 @@ export default class CourseInfo extends React.Component {
                 <div className="course-info-header">
                     {this.props.activeCourse.name}
                 </div>
-                <div style={{padding: 10}}>
+                <div className="course-info-details">
                     <div>
                         <span>{`${this.props.activeCourse.author}`}</span>
                     </div>
                     <div>
                         <span>{this.props.activeCourse.days.map(day => day.substring(0, 3)).join(", ")}</span> | <span>{this.props.activeCourse.time.join(", ")}</span>
-                    </div>
-                    <div>
-
                     </div>
                     <div className="course-info-footer">
                         <button className="cs-button" onClick={this.handleRemoveFromCalendar}>
