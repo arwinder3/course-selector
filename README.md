@@ -17,6 +17,9 @@ Next you'll need to install the npm dependencies, can do so by running this:
 npm install
 ```
 
+### Prerequisite
+Since this is just the front-end server, you will need to configure and startup the required back-end api service.
+
 ## Running the server
 Once you've cloned the repo and installed the npm dependencies you're good to start the server:
 ```Shell
