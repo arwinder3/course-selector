@@ -120,7 +120,7 @@ export default class Calendar extends React.Component {
                                     activeCourse={this.props.activeCourse}
                                     activeCalendar={this.props.activeCalendar}
                                     onCalendarUpdate={this.props.onCalendarUpdate}
-                                    clearActiveCourse={this.props.clearActiveCourse}/> : null
+                                    setActiveCourse={this.props.setActiveCourse}/> : null
                         }
                     </div>
                 </div>
@@ -137,5 +137,5 @@ Calendar.propTypes = {
     onCalendarUpdate: React.PropTypes.func,
     onCellClick: React.PropTypes.func,
     activeCourse: React.PropTypes.object,
-    clearActiveCourse: React.PropTypes.func
+    setActiveCourse: React.PropTypes.func
 };

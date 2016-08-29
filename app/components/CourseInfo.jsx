@@ -11,7 +11,7 @@ export default class CourseInfo extends React.Component {
         const updatedCalendar = Object.assign({}, this.props.activeCalendar);
         updatedCalendar.courseIds = this.props.activeCalendar.courseIds.filter(courseId => courseId !== this.props.activeCourse.id);
         this.props.onCalendarUpdate(updatedCalendar);
-        this.props.clearActiveCourse();
+        this.props.setActiveCourse(null);
     }
 
     render() {
@@ -43,5 +43,5 @@ CourseInfo.propTypes = {
     activeCourse: React.PropTypes.object,
     activeCalendar: React.PropTypes.object,
     onCalendarUpdate: React.PropTypes.func,
-    clearActiveCourse: React.PropTypes.func
+    setActiveCourse: React.PropTypes.func
 };

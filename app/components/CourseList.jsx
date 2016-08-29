@@ -24,7 +24,7 @@ export default class CourseList extends React.Component {
 
             // If the course being removed is the active course - set the active course to null
             if (this.props.activeCourse && this.props.activeCourse.id === this.course.id) {
-                this.props.clearActiveCourse();
+                this.props.setActiveCourse(null);
             }
         } else {
             const courseConflicts = this.self._getCourseConflicts(this.props.calendar, this.props.courseList, this.course);
@@ -116,5 +116,5 @@ CourseList.propTypes = {
     onCalendarUpdate: React.PropTypes.func,
     onMessage: React.PropTypes.func,
     activeCourse: React.PropTypes.object,
-    clearActiveCourse: React.PropTypes.func
+    setActiveCourse: React.PropTypes.func
 };
